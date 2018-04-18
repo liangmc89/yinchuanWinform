@@ -199,6 +199,7 @@
             // 
             // FormExit
             // 
+            this.AcceptButton = this.btnExit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(198, 220);
@@ -224,6 +225,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "退出";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
