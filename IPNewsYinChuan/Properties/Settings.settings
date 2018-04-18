@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="IPNewsYinChuan.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ExitPwd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1234</Value>
+    </Setting>
+    <Setting Name="Address" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://111.113.15.126:3307/index.html</Value>
+    </Setting>
+    <Setting Name="IPNewsYinChuan_WebReference_ClientHelper" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://211.95.73.116:8001/Service/ClientHelper.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

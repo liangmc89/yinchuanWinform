@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AddClientScreen">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientScreenName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shortDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HDSerialNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MachineModelName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MachineCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddClientScreenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddClientScreenResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateClientStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="bs" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="flashState" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateClientStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateClientStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClientHelperSoapHeader" type="tns:ClientHelperSoapHeader" />
+      <s:complexType name="ClientHelperSoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="QueryVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="client" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryVersionResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetVersionUpdated">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="client" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetVersionUpdatedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetVersionUpdatedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+    <s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddClientScreenSoapIn">
+    <wsdl:part name="parameters" element="tns:AddClientScreen" />
+  </wsdl:message>
+  <wsdl:message name="AddClientScreenSoapOut">
+    <wsdl:part name="parameters" element="tns:AddClientScreenResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateClientStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateClientStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateClientStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateClientStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateClientStatusClientHelperSoapHeader">
+    <wsdl:part name="ClientHelperSoapHeader" element="tns:ClientHelperSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="QueryVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryVersion" />
+  </wsdl:message>
+  <wsdl:message name="QueryVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryVersionClientHelperSoapHeader">
+    <wsdl:part name="ClientHelperSoapHeader" element="tns:ClientHelperSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetVersionUpdatedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetVersionUpdated" />
+  </wsdl:message>
+  <wsdl:message name="SetVersionUpdatedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetVersionUpdatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetVersionUpdatedClientHelperSoapHeader">
+    <wsdl:part name="ClientHelperSoapHeader" element="tns:ClientHelperSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddClientScreenHttpGetIn">
+    <wsdl:part name="clientScreenName" type="s:string" />
+    <wsdl:part name="shortDescription" type="s:string" />
+    <wsdl:part name="HDSerialNumber" type="s:string" />
+    <wsdl:part name="MachineModelName" type="s:string" />
+    <wsdl:part name="MachineCode" type="s:string" />
+    <wsdl:part name="ip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddClientScreenHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="UpdateClientStatusHttpGetIn">
+    <wsdl:part name="clientID" type="s:string" />
+    <wsdl:part name="bs" type="s1:StringArray" />
+    <wsdl:part name="flashState" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateClientStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryVersionHttpGetIn">
+    <wsdl:part name="client" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryVersionHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="SetVersionUpdatedHttpGetIn">
+    <wsdl:part name="client" type="s:string" />
+    <wsdl:part name="filename" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetVersionUpdatedHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddClientScreenHttpPostIn">
+    <wsdl:part name="clientScreenName" type="s:string" />
+    <wsdl:part name="shortDescription" type="s:string" />
+    <wsdl:part name="HDSerialNumber" type="s:string" />
+    <wsdl:part name="MachineModelName" type="s:string" />
+    <wsdl:part name="MachineCode" type="s:string" />
+    <wsdl:part name="ip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddClientScreenHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="UpdateClientStatusHttpPostIn">
+    <wsdl:part name="clientID" type="s:string" />
+    <wsdl:part name="bs" type="s1:StringArray" />
+    <wsdl:part name="flashState" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateClientStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryVersionHttpPostIn">
+    <wsdl:part name="client" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryVersionHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="SetVersionUpdatedHttpPostIn">
+    <wsdl:part name="client" type="s:string" />
+    <wsdl:part name="filename" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetVersionUpdatedHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ClientHelperSoap">
+    <wsdl:operation name="AddClientScreen">
+      <wsdl:input message="tns:AddClientScreenSoapIn" />
+      <wsdl:output message="tns:AddClientScreenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientStatus">
+      <wsdl:input message="tns:UpdateClientStatusSoapIn" />
+      <wsdl:output message="tns:UpdateClientStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryVersion">
+      <wsdl:input message="tns:QueryVersionSoapIn" />
+      <wsdl:output message="tns:QueryVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVersionUpdated">
+      <wsdl:input message="tns:SetVersionUpdatedSoapIn" />
+      <wsdl:output message="tns:SetVersionUpdatedSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ClientHelperHttpGet">
+    <wsdl:operation name="AddClientScreen">
+      <wsdl:input message="tns:AddClientScreenHttpGetIn" />
+      <wsdl:output message="tns:AddClientScreenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientStatus">
+      <wsdl:input message="tns:UpdateClientStatusHttpGetIn" />
+      <wsdl:output message="tns:UpdateClientStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryVersion">
+      <wsdl:input message="tns:QueryVersionHttpGetIn" />
+      <wsdl:output message="tns:QueryVersionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVersionUpdated">
+      <wsdl:input message="tns:SetVersionUpdatedHttpGetIn" />
+      <wsdl:output message="tns:SetVersionUpdatedHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ClientHelperHttpPost">
+    <wsdl:operation name="AddClientScreen">
+      <wsdl:input message="tns:AddClientScreenHttpPostIn" />
+      <wsdl:output message="tns:AddClientScreenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientStatus">
+      <wsdl:input message="tns:UpdateClientStatusHttpPostIn" />
+      <wsdl:output message="tns:UpdateClientStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryVersion">
+      <wsdl:input message="tns:QueryVersionHttpPostIn" />
+      <wsdl:output message="tns:QueryVersionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVersionUpdated">
+      <wsdl:input message="tns:SetVersionUpdatedHttpPostIn" />
+      <wsdl:output message="tns:SetVersionUpdatedHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClientHelperSoap" type="tns:ClientHelperSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddClientScreen">
+      <soap:operation soapAction="http://tempuri.org/AddClientScreen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientStatus">
+      <soap:operation soapAction="http://tempuri.org/UpdateClientStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateClientStatusClientHelperSoapHeader" part="ClientHelperSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryVersion">
+      <soap:operation soapAction="http://tempuri.org/QueryVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:QueryVersionClientHelperSoapHeader" part="ClientHelperSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVersionUpdated">
+      <soap:operation soapAction="http://tempuri.org/SetVersionUpdated" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetVersionUpdatedClientHelperSoapHeader" part="ClientHelperSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClientHelperSoap12" type="tns:ClientHelperSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddClientScreen">
+      <soap12:operation soapAction="http://tempuri.org/AddClientScreen" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientStatus">
+      <soap12:operation soapAction="http://tempuri.org/UpdateClientStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateClientStatusClientHelperSoapHeader" part="ClientHelperSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryVersion">
+      <soap12:operation soapAction="http://tempuri.org/QueryVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:QueryVersionClientHelperSoapHeader" part="ClientHelperSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVersionUpdated">
+      <soap12:operation soapAction="http://tempuri.org/SetVersionUpdated" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetVersionUpdatedClientHelperSoapHeader" part="ClientHelperSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClientHelperHttpGet" type="tns:ClientHelperHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="AddClientScreen">
+      <http:operation location="/AddClientScreen" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientStatus">
+      <http:operation location="/UpdateClientStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryVersion">
+      <http:operation location="/QueryVersion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVersionUpdated">
+      <http:operation location="/SetVersionUpdated" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClientHelperHttpPost" type="tns:ClientHelperHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AddClientScreen">
+      <http:operation location="/AddClientScreen" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientStatus">
+      <http:operation location="/UpdateClientStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryVersion">
+      <http:operation location="/QueryVersion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVersionUpdated">
+      <http:operation location="/SetVersionUpdated" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientHelper">
+    <wsdl:port name="ClientHelperSoap" binding="tns:ClientHelperSoap">
+      <soap:address location="http://211.95.73.116:8001/Service/ClientHelper.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClientHelperSoap12" binding="tns:ClientHelperSoap12">
+      <soap12:address location="http://211.95.73.116:8001/Service/ClientHelper.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClientHelperHttpGet" binding="tns:ClientHelperHttpGet">
+      <http:address location="http://211.95.73.116:8001/Service/ClientHelper.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClientHelperHttpPost" binding="tns:ClientHelperHttpPost">
+      <http:address location="http://211.95.73.116:8001/Service/ClientHelper.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
