@@ -137,7 +137,8 @@ namespace IPNewsYinChuan
                         ContextMenu = null
 
                     };
-                    browser.Dock = DockStyle.Fill;//填充方式                
+                    browser.Dock = DockStyle.Fill;//填充方式   
+                    browser.MenuHandler = new MenuHandler();//禁用浏览器右键菜单
                     this.Controls.Add(browser);
                     browser.Focus();
 
@@ -224,4 +225,34 @@ namespace IPNewsYinChuan
             CheckAuth();
         }
     }
+
+    #region 浏览器右键菜单
+    /// <summary>
+    /// cef菜单事件
+    /// </summary>
+    public class MenuHandler : CefSharp.IContextMenuHandler
+    {
+
+        void CefSharp.IContextMenuHandler.OnBeforeContextMenu(CefSharp.IWebBrowser browserControl, CefSharp.IBrowser browser, CefSharp.IFrame frame, CefSharp.IContextMenuParams parameters, CefSharp.IMenuModel model)
+        {
+            model.Clear();
+        }
+
+        bool CefSharp.IContextMenuHandler.OnContextMenuCommand(CefSharp.IWebBrowser browserControl, CefSharp.IBrowser browser, CefSharp.IFrame frame, CefSharp.IContextMenuParams parameters, CefSharp.CefMenuCommand commandId, CefSharp.CefEventFlags eventFlags)
+        {
+            //throw new NotImplementedException();
+            return false;
+        }
+
+        void CefSharp.IContextMenuHandler.OnContextMenuDismissed(CefSharp.IWebBrowser browserControl, CefSharp.IBrowser browser, CefSharp.IFrame frame)
+        {
+            //throw new NotImplementedException();
+        }
+
+        bool CefSharp.IContextMenuHandler.RunContextMenu(CefSharp.IWebBrowser browserControl, CefSharp.IBrowser browser, CefSharp.IFrame frame, CefSharp.IContextMenuParams parameters, CefSharp.IMenuModel model, CefSharp.IRunContextMenuCallback callback)
+        {
+            return false;
+        }
+    }
+    #endregion
 }
