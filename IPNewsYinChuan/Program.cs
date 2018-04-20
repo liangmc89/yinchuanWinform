@@ -23,14 +23,19 @@ namespace IPNewsYinChuan
             {
                 //By default CefSharp will use an in-memory cache, you need to specify a Cache Folder to persist data
                 //CachePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "CefSharp\\Cache")
-                CachePath = AppDomain.CurrentDomain.BaseDirectory + "CefSharp\\Cache"
+                // CachePath = AppDomain.CurrentDomain.BaseDirectory + "CefSharp\\Cache"
+                CachePath = @"D:\Cache"
             };
-
+            // Enable WebRTC                           
+            settings.CefCommandLineArgs.Add("enable-media-stream", "1");
             //Perform dependency check to make sure all relevant resources are in our output directory.
-            Cef.Initialize(settings, performDependencyCheck: true, browserProcessHandler: null);
+            // Cef.Initialize(settings, performDependencyCheck: true, browserProcessHandler: null);
+            Cef.Initialize(settings,shutdownOnProcessExit:true, performDependencyCheck: true);
 
             var browser = new Form1();
             Application.Run(browser);
+            
         }
+        
     }
 }

@@ -51,8 +51,8 @@ namespace IPNewsYinChuan
             else if (text == "退出")
             {
                 if (this.textPwd.Text.Trim()==Pwd)
-                {   
-                    
+                {
+                    CefSharp.Cef.Shutdown();
                     Application.Exit();
                 }
                 
