@@ -18,9 +18,10 @@ namespace IPNewsYinChuan
     {
 
         private ChromiumWebBrowser browser;
+         
         WebReference.ClientHelper ch = new WebReference.ClientHelper();
         WebReference.ClientHelperSoapHeader cs = new WebReference.ClientHelperSoapHeader();
-
+        
         int t = 10;
         int i = 0;
         int totalSecond = 60;
@@ -50,6 +51,8 @@ namespace IPNewsYinChuan
 
         public Form1()
         {
+           
+
             InitializeComponent();
             timer.Interval = 4000;
             timer.Tick += (s, e1) => { timer.Enabled = false; i = 0; };
@@ -69,12 +72,11 @@ namespace IPNewsYinChuan
             Load += Form1_Load;
         }
 
+        
+
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            ChcekInternet();       
-
-
+            ChcekInternet();  
         }
 
 
@@ -87,10 +89,25 @@ namespace IPNewsYinChuan
                 byte[] bs = new byte[] { };
                 int ClientID = Convert.ToInt32(this.Csid);
                 string result = sendScreen(ClientID, null);
-                if (string.IsNullOrEmpty(result))
+                if (string.IsNullOrEmpty(result)|| result=="0")
                 {
-                    byte[] imgByte = GZip.Compress(Common.ImageGdi(PrintScreen.captureScreen()));
-                    string s = sendScreen(ClientID, imgByte);
+                    Bitmap bitmap=null;
+                    try
+                    {
+                        bitmap = PrintScreen.captureScreen(); 
+                    }
+                    catch (Exception)
+                    {
+
+                        
+                    }
+                    if (bitmap!=null)
+                    {
+                        byte[] imgByte = GZip.Compress(Common.ImageGdi(bitmap));
+                        string s = sendScreen(ClientID, imgByte);
+                    }
+                       
+                   
                 }
             }
             else
@@ -104,6 +121,7 @@ namespace IPNewsYinChuan
             string result = "";
             try
             {
+               
                 result = ch.UpdateClientStatus(clientId, imgbyte, 1);
 
             }
@@ -137,6 +155,7 @@ namespace IPNewsYinChuan
                         ContextMenu = null
 
                     };
+                   
                     browser.Dock = DockStyle.Fill;//填充方式   
                     browser.MenuHandler = new MenuHandler();//禁用浏览器右键菜单
                     this.Controls.Add(browser);
@@ -175,6 +194,8 @@ namespace IPNewsYinChuan
                 {
                     this.Csid = formAuth.Csid;
                     this.Pwd = formAuth.Pwd;
+                    cs.PassWord = this.Pwd;
+                    ch.ClientHelperSoapHeaderValue = cs;
                     this.btnReg.Visible = false;
                     return true;
                 }
@@ -193,7 +214,10 @@ namespace IPNewsYinChuan
                 sr.Close();
                 sr.Dispose();
                 this.Csid = result.Split(',')[0];
-                this.Pwd = result.Split(',')[1].Trim();
+                this.Pwd = result.Split(',')[1];
+                cs.PassWord = this.Pwd;
+                ch.ClientHelperSoapHeaderValue = cs;
+
                 return true;
 
 

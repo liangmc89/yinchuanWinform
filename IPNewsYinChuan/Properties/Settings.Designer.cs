@@ -37,20 +37,20 @@ namespace IPNewsYinChuan.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://111.113.15.126:3307/index.html")]
-        public string Address {
-            get {
-                return ((string)(this["Address"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://211.95.73.116:8001/Service/ClientHelper.asmx")]
         public string IPNewsYinChuan_WebReference_ClientHelper {
             get {
                 return ((string)(this["IPNewsYinChuan_WebReference_ClientHelper"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://111.113.15.126:3307/yinchuan.html")]
+        public string Address {
+            get {
+                return ((string)(this["Address"]));
             }
         }
     }

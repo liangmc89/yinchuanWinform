@@ -30,14 +30,16 @@ namespace IPNewsYinChuan
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.tbScreenName.Text)||string.IsNullOrEmpty(this.tbDescription.Text))
+            if (string.IsNullOrEmpty(this.tbScreenName.Text)||string.IsNullOrEmpty(this.tbDescription.Text)||string.IsNullOrEmpty(this.tbMMN.Text)||string.IsNullOrEmpty(this.tbMc.Text))
             {
                 return;
             }
             else
             {
                 this.ClientScreenName = this.tbScreenName.Text.Trim();
-                this.ShortDescription = this.tbDescription.Text;
+                this.ShortDescription = this.tbDescription.Text.Trim();
+                this.MachineModelName = this.tbMMN.Text.Trim();
+                this.MachineCode = this.tbMc.Text.Trim();
                 Auth();
             }
         }
@@ -48,7 +50,7 @@ namespace IPNewsYinChuan
             string[] arr = new string[] { };
             try
             {
-                arr = clientHelper.AddClientScreen(this.ClientScreenName, this.ShortDescription, Common.GetHardDiskID(), "", "", "");
+                arr = clientHelper.AddClientScreen(this.ClientScreenName, this.ShortDescription, Common.GetHardDiskID(), this.MachineModelName, this.MachineCode, "");
             }
             catch (Exception e)
             {
@@ -59,7 +61,7 @@ namespace IPNewsYinChuan
             if (arr != null && arr.Length > 0)
             {
                 this.Csid = arr[0];
-                this.Pwd = arr[0];
+                this.Pwd = arr[1];
 
 
                 StreamWriter sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory+"user.txt", false, System.Text.Encoding.UTF8);

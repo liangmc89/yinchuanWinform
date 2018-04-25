@@ -5,11 +5,11 @@
     <Setting Name="ExitPwd" Type="System.String" Scope="User">
       <Value Profile="(Default)">1234</Value>
     </Setting>
-    <Setting Name="Address" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://111.113.15.126:3307/index.html</Value>
-    </Setting>
     <Setting Name="IPNewsYinChuan_WebReference_ClientHelper" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://211.95.73.116:8001/Service/ClientHelper.asmx</Value>
+    </Setting>
+    <Setting Name="Address" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://111.113.15.126:3307/yinchuan.html</Value>
     </Setting>
   </Settings>
 </SettingsFile>
