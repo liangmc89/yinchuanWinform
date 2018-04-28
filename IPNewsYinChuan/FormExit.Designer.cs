@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExit));
             this.textPwd = new System.Windows.Forms.TextBox();
             this.btn1 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
@@ -217,6 +218,7 @@
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.textPwd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(214, 256);
             this.MinimumSize = new System.Drawing.Size(214, 256);
             this.Name = "FormExit";

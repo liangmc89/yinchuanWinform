@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnExit = new System.Windows.Forms.Button();
             this.labErr = new System.Windows.Forms.Label();
             this.btnReg = new System.Windows.Forms.Button();
@@ -84,10 +85,12 @@
             this.Controls.Add(this.labErr);
             this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "银川日报客户端";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
