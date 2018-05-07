@@ -90,7 +90,6 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "银川日报客户端";
-            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
